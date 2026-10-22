@@ -12,6 +12,10 @@ def emo_detector():
     # Pass the text to the emotion_detector function and store the response
     response = emotion_detector(text_to_analyze)
 
+    # dominant_emotion is None only when the input was blank/invalid
+    if response['dominant_emotion'] is None:
+        return "Invalid text! Please try again!"
+
     # Extract each emotion score and the dominant emotion
     anger = response['anger']
     disgust = response['disgust']
